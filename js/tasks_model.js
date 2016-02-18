@@ -2,17 +2,30 @@ var Model = {
   tasks: [],
   init: function() {
     //init task list state here
+    Model.createTask("newtask");
+    var task = Model.createTask("newtask2");
+    task.toggleDone();
+    Model.createTask("newTask3");
+  },
+  getTasks: function() {
+    // task will only be true if it isn't null
+    return Model.tasks.filter(function(task){ return task; });
   },
   createTask: function(description) {
     var id = Model.tasks.length;
     var task = new Model.Task(id, description);
-    tasks[id] = task;
+    Model.tasks.push(task);
+    return task;
   },
   deleteTask: function(id) {
-    delete Model.tasks[id];
+    if(Model.tasks[id]) {
+      delete Model.tasks[id];
+    }
   },
   toggleTaskDone: function(id) {
-    Model.tasks[id].toggleDone();
+    if(Model.tasks[id]) {
+      Model.tasks[id].toggleDone();
+    }
   },
   //TODO: add due date
   Task: function(id,description) {
@@ -28,13 +41,9 @@ Model.Task.prototype.getId = function() {
 Model.Task.prototype.getDescription = function() {
   return this.description;
 };
+Model.Task.prototype.isChecked = function() {
+  return this.isDone;
+};
 Model.Task.prototype.toggleDone = function() {
   this.isDone = !this.isDone;
-};
-
-
-window.onload = function() {
-  //init to specific state
-
-  //draw it
 };

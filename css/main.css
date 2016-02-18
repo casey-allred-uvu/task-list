@@ -1,0 +1,45 @@
+#content {
+  width: 900px;
+  margin: auto;
+}
+
+#tasks_go_here table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#tasks_go_here table td:nth-child(2) {
+  width: 100%;
+}
+
+#tasks_go_here table tr.odd {
+  background-color: lightgrey;
+}
+
+#tasks_go_here table td {
+  padding: 5px;
+}
+
+#create_task_here {
+  margin-top: 15px;
+}
+
+#create_task_here input {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#boxwrapper {
+  width: 100%;
+  height: 500px;
+  position:relative;
+}
+
+#box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: absolute;
+  top: 300px;
+  left: 10px;
+}

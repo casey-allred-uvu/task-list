@@ -5,7 +5,8 @@ var View = {
 
   },
   // objsArr is an array of Objects with an id, description, and checked values
-  drawTaskList: function(objsArr) {
+  // test with View.genTaskListHtml([{id: 1, description: "task 1", checked: false},{id:2, description: "task 2", checked: true}]);
+  genTaskListHtml: function(objsArr) {
     var html = "<table>";
     var cssClass = "even";
     for(var i = 0; i < objsArr.length; i++) {

@@ -4,6 +4,7 @@ var create_div_id = "create_task_here";
 //init function
 var init_view = function(objsArr) {
   genAndInsertTaskList(objsArr);
+  insertCreateTaskHtml(genCreateTaskHtml());
 };
 
 //update function
@@ -32,4 +33,16 @@ var genTaskListHtml = function(objsArr) {
 
 var insertTaskListHtml = function(html) {
   document.getElementById(task_div_id).innerHTML = html;
+};
+
+var genCreateTaskHtml = function() {
+  var html = "<div id='create_task'>";
+  html += "<input type='text' placeholder='Task Description' />";
+  html += "<button type='button'>Add Task</button>"
+  html += "</div>";
+  return html;
+};
+
+var insertCreateTaskHtml = function(html) {
+  document.getElementById(create_div_id).innerHTML = html;
 };

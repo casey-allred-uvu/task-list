@@ -9,11 +9,24 @@ var init_view = function(objsArr) {
 
 var addTaskEvents = function() {
   var wrapper = document.getElementById("tasks_go_here");
+  //buttons
   var buttons = wrapper.getElementsByTagName("button");
   for(var i = 0; i < buttons.length; i++) {
     var button = buttons[i];
     button.addEventListener("click", deleteTaskHandler, false);
   }
+
+  //check boxes
+  var checkboxes = wrapper.getElementsByTagName("input");
+  for(var i = 0; i < checkboxes.length; i++) {
+    var checkbox = checkboxes[i];
+    checkbox.addEventListener("click", toggleTaskChecked, false);
+  }
+};
+
+var toggleTaskChecked = function(event) {
+  var id = event.target.dataset.taskid;
+  toggleTaskAction(id);
 };
 
 var deleteTaskHandler = function(event) {
@@ -52,7 +65,7 @@ var genTaskListHtml = function(objsArr) {
     var obj = objsArr[i];
     cssClass = (cssClass == "even") ? "odd" : "even";
     html += "<tr class='"+cssClass+"'>";
-    html += "<td><input type='checkbox'"+
+    html += "<td><input data-taskid='"+obj.id+"' type='checkbox'"+
       (obj.checked?" checked='checked'":"")+" /></td>";
     html += "<td>"+obj.description+"</td>";
     html += "<td><button data-taskid='"+obj.id+"' type='button'>x</button></td>";

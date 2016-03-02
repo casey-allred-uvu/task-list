@@ -5,6 +5,19 @@ var init_controller = function() {
   init_view(objsArr);
 };
 
+//for the model to signal something updated independently
+var modelUpdated = function() {
+  var tasks = getTasks();
+  var objsArr = convertTasksToObjs(tasks);
+  init_view(objsArr);
+};
+var modelMakingRequest = function() {
+  greyOutScreen();
+};
+var modelRequestDone = function() {
+  unGreyOutScreen();
+};
+
 var convertTasksToObjs = function(tasks) {
   //id, description, and checked values
   var objsArr = [];
@@ -59,8 +72,7 @@ var animate = function() {
     }
   };
   setTimeout(moveSquare, 100);
-
 };
 
 
-window.onload = init_controller
+window.onload = init_controller;

@@ -5,7 +5,32 @@ var init_model = function() {
   var task = createTask("newtask2");
   task.toggleDone();
   createTask("newTask3");
+  //LOAD AJAX HERE
+  askServerForTasks();
 };
+var askServerForTasks = function() {
+  modelMakingRequest();
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function() {
+    if(request.readyState == 4 && request.status == 200) {
+      var data = JSON.parse(request.responseText);
+      if(typeof data.length != "undefined") {
+        for(var i = 0; i < data.length; i++) {
+          var obj = data[i];
+          var task = createTask(obj.description);
+          if(obj.checked) {
+            task.toggleDone();
+          }
+        }
+      }
+      modelUpdated();
+      modelRequestDone();
+    }
+  };
+  request.open("GET", "data/tasks.json");
+  request.send(null);
+};
+
 var getTasks = function() {
   // task will only be true if it isn't null
   return tasks.filter(function(task){ return task; });

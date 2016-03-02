@@ -7,6 +7,29 @@ var init_view = function(objsArr) {
   genAndInsertCreateTask();
 };
 
+//for ajax request waiting
+var greyOutScreen = function() {
+  var body = document.getElementsByTagName("body")[0];
+  var div = document.createElement("div");
+  div.style.position = "fixed";
+  var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  div.style.width = w;
+  div.style.height = h;
+  div.style.top = 0;
+  div.style.left = 0;
+  div.id = "greyscreen";
+  div.style.backgroundColor = "lightgrey";
+  div.style.zIndex = 9999;
+  body.appendChild(div);
+};
+var unGreyOutScreen = function() {
+  var div = document.getElementById("greyscreen");
+  if(div) {
+    div.parentElement.removeChild(div);
+  }
+};
+
 var addTaskEvents = function() {
   var wrapper = document.getElementById("tasks_go_here");
   //buttons

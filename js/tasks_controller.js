@@ -6,6 +6,9 @@ var init_controller = function() {
 };
 
 //for the model to signal something updated independently
+var requestModelUpdateAJAX = function() {
+  askServerForTasks();
+};
 var modelUpdated = function() {
   var tasks = getTasks();
   var objsArr = convertTasksToObjs(tasks);

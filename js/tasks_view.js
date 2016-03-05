@@ -8,6 +8,9 @@ var init_view = function(objsArr) {
 };
 
 //for ajax request waiting
+var handleRequestForAjaxTasks = function() {
+  requestModelUpdateAJAX();
+};
 var greyOutScreen = function() {
   var body = document.getElementsByTagName("body")[0];
   var div = document.createElement("div");
@@ -21,6 +24,11 @@ var greyOutScreen = function() {
   div.id = "greyscreen";
   div.style.backgroundColor = "lightgrey";
   div.style.zIndex = 9999;
+  div.style.opacity = 0.5;
+  div.style.textAlign = "center";
+  div.style.fontSize = "50px";
+  div.style.paddingTop = "100px";
+  div.innerHTML = "<span>Loading . . .</span><img src='imgs/spin.gif' width='50px' alt='' />";
   body.appendChild(div);
 };
 var unGreyOutScreen = function() {
@@ -106,6 +114,11 @@ var genCreateTaskHtml = function() {
   var html = "<div id='create_task'>";
   html += "<input type='text' placeholder='Task Description' />";
   html += "<button id='create_task_button' type='button'>Add Task</button>"
+  html += "</div>";
+
+  html += "<div id='ajax'>";
+  html += "<button type='button' onclick='handleRequestForAjaxTasks();'>AJAX</button>";
+  html += "<form action='tasks.php'><button type='submit'>Form submit</button></form>";
   html += "</div>";
   return html;
 };

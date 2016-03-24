@@ -1,0 +1,4 @@
+<!ELEMENT tasks (task+)>
+<!ELEMENT task (description, checked)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT checked (#PCDATA)>

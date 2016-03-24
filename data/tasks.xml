@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE tasks SYSTEM "tasks.dtd">
+<tasks>
+    <task>
+        <description>Task 1</description>
+        <checked>false</checked>
+    </task>
+    <task>
+        <description>Task 2</description>
+        <checked>true</checked>
+    </task>
+    <task>
+        <description>Task 3</description>
+        <checked>false</checked>
+    </task>
+    <task>
+        <description>Task 4</description>
+        <checked>true</checked>
+    </task>
+</tasks>

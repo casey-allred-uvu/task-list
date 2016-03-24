@@ -6,15 +6,15 @@
         <checked>false</checked>
     </task>
     <task>
-        <description>Task 2</description>
-        <checked>true</checked>
-    </task>
-    <task>
         <description>Task 3</description>
         <checked>false</checked>
     </task>
     <task>
         <description>Task 4</description>
         <checked>true</checked>
+    </task>
+    <task>
+        <description>Task 5</description>
+        <checked>false</checked>
     </task>
 </tasks>
